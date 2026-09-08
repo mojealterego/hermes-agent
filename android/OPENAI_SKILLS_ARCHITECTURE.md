@@ -2,7 +2,7 @@
 
 ## Status
 
-This is the Android integration contract for OpenAI Skills. OpenAI's current Skills API treats a skill as a versioned bundle: skills can be created/listed, immutable versions can be created, a default version can be selected, and skill content can be downloaded as a bundle. citeturn0search0turn0search2turn0search9
+This is the Android integration contract for OpenAI Skills. The current OpenAI Skills API treats a skill as a versioned bundle: skills can be created and listed, immutable versions can be created, a default version can be selected, and skill content can be downloaded as a bundle.
 
 Hermes therefore treats `SKILL.md` as the portable procedural entry point while keeping version identity, content digest, and execution policy explicit. A local Hermes skill and an OpenAI-hosted skill must not silently diverge.
 
@@ -62,7 +62,7 @@ Hermes Agent runtime
 
 ### Skills
 
-A Skill is procedural guidance, not an execution channel. Skill content can influence model behavior, so the runtime must treat skill files as trusted-but-audited instructions and must make instruction priority explicit: user instructions remain higher priority than skill guidance. OpenAI's current model guidance specifically recommends auditing accessible skill/instruction files because they can materially influence model behavior. citeturn0search3
+A Skill is procedural guidance, not an execution channel. Skill content can influence model behavior, so the runtime must treat skill files as trusted-but-audited instructions and must make instruction priority explicit: user instructions remain higher priority than skill guidance.
 
 The implementation therefore enforces:
 
@@ -96,7 +96,7 @@ skills/<name>/
 
 `SKILL.md` must define trigger conditions, input assumptions, workflow, tool boundaries, security constraints, validation, failure behavior, output expectations, and stop conditions.
 
-For OpenAI-hosted deployment, preserve the same logical bundle and version identity. OpenAI exposes immutable Skill versions and a default-version pointer, so deployments should pin or record the selected version instead of assuming that `latest` is immutable. citeturn0search9turn0search12
+For OpenAI-hosted deployment, preserve the same logical bundle and version identity. OpenAI exposes immutable Skill versions and a default-version pointer, so deployments should pin or record the selected version instead of assuming that `latest` is immutable.
 
 ## Validation gates
 
